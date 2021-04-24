@@ -36,11 +36,6 @@ module.exports = {
   },
   devServer: {
     publicPath: '/public',
-    proxy: {
-      '/api': 'http://localhost:3000',
-      '/db': 'http://localhost:3000',
-      '/': 'http://localhost:3000',
-    },
     port: 8080,
     
   }
