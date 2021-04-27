@@ -21,6 +21,8 @@
   "dependencies": {
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
+    "concurrently": "^6.0.2",
+    "cross-env": "^7.0.3",
     "express": "^4.17.1",
     "image-loader": "0.0.1",
     "mongoose": "^5.12.5",
@@ -32,8 +34,7 @@
     "react-router-dom": "^5.2.0",
     "sass": "^1.32.11",
     "sass-loader": "^11.0.1",
-    "scss-loader": "0.0.1",
-    "concurrently": "^6.0.2"
+    "scss-loader": "0.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.13.16",

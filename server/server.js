@@ -14,11 +14,11 @@ const PORT = 3000;
 //mongo database log in: username: rschelly, password: mongopassword
 const mongoURI =
   "mongodb+srv://rschelly:mongopassword@cluster0.b5qc7.mongodb.net/BetterReads?retryWrites=true&w=majority";
-mongoose.connect(
-  mongoURI,
-  { useNewUrlParser: true },
-  { useUnifiedTopology: true }
-);
+// mongoose.connect(
+//   mongoURI,
+//   { useNewUrlParser: true },
+//   { useUnifiedTopology: true }
+// );
 const { connection } = mongoose;
 
 connection.once("open", () => {
