@@ -6,7 +6,7 @@
   "scripts": {
     "start": "NODE_ENV=production nodemon server/server.js",
     "build": "NODE_ENV=production webpack",
-    "dev": "NODE_ENV=development nodemon server/server.js & NODE_ENV=development webpack serve --open"
+    "dev": "concurrently \"cross-env NODE_ENV=development webpack serve --open\" \"nodemon server/server.js\""
   },
   "repository": {
     "type": "git",
@@ -22,15 +22,18 @@
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
-      
-    
     "image-loader": "0.0.1",
     "mongoose": "^5.12.5",
     "pg": "^8.6.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
     "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "sass": "^1.32.11",
+    "sass-loader": "^11.0.1",
+    "scss-loader": "0.0.1",
+    "concurrently": "^6.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.13.16",
