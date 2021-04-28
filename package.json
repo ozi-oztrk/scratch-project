@@ -42,7 +42,10 @@
     "react-router-dom": "^5.2.0",
     "sass": "^1.32.11",
     "sass-loader": "^11.0.1",
-    "scss-loader": "0.0.1"
+    "scss-loader": "0.0.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.13.16",
