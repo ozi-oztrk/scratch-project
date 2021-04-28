@@ -2,12 +2,18 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { Redirect, withRouter } from 'react-router-dom';
 
-  const SignupForm  = () => {
+ 
+function SignupForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [redirect, setRedirect] = useState(false);
+
+  const handleChange = (event) => {
+    value = event.target.value;
+    [event.target.name] = setValue(value);
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault();

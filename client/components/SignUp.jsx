@@ -1,8 +1,8 @@
 import React from "react";
 import SignupForm from "./SignupForm.jsx"
-import withRouter from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
-const Signup = () => {
+function Signup () {
   return (
     <div className="loginContainer">
     <div className="loginFormContainer"> 
