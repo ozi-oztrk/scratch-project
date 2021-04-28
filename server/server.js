@@ -36,16 +36,11 @@ const apiRouter = require("./api/api_router.js");
 const libraryRouter = require("./api/libraryRouter.js");
 
 
-
 app.get("/", (req, res) => {
   // res.redirect("/home");
   res.sendFile(path.join(__dirname, "../html-scss/index.html"));
 });
 
-//paths for static files
-// app.get("/login", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../html-scss/login.html"));
-// });
 
 app.get("/signup", (req, res) => {
   res.sendFile(path.join(__dirname, "../html-scss/index.html"));
@@ -59,8 +54,9 @@ app.post("/signup", userController.registerUser, (req, res) => {
 });
 
 
-app.post("/login", passport.authenticate("local", {}), function (req, res) {
-  res.redirect("/home");
+app.post("/login", passport.authenticate("local", {successRedirect: '/home', failureRedirect: '/login'}), function (req, res, next) {
+  console.log('in passport local')
+  
 });
 
 app.get(
