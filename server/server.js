@@ -1,11 +1,10 @@
 const express = require("express");
 const path = require("path");
-const cookieSession = require('cookie-session');
+const cookieSession = require("cookie-session");
 // const cookieParser = require('cookie-parser');
 const bodyParser = require("body-parser");
-const passport = require('passport');
-require('./passport')
-
+const passport = require("passport");
+require("./passport");
 
 const userController = require("./controllers/userController");
 // const cookieController = require("./controllers/cookieController");
@@ -15,21 +14,20 @@ const app = express();
 const PORT = 3000;
 
 //Configure Session Storage
-app.use(cookieSession({
-  name: 'session-name',
-  keys:['key1','key2']
-}));
+app.use(
+  cookieSession({
+    name: "session-name",
+    keys: ["key1", "key2"],
+  })
+);
 
 //Configure Passport
 app.use(passport.initialize());
 app.use(passport.session());
 
-
 const checkUserLoggedIn = (req, res, next) => {
-  req.user ? next(): res.sendStatus(401)
-}
-
-
+  req.user ? next() : res.sendStatus(401);
+};
 
 const apiRouter = require("./api/api_router.js");
 const libraryRouter = require("./api/libraryRouter.js");
@@ -40,7 +38,6 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   // res.redirect("/home");
   res.sendFile(path.join(__dirname, "../html-scss/index.html"));
-
 });
 
 //paths for static files
@@ -53,15 +50,11 @@ app.get("/signup", (req, res) => {
 });
 
 //signup and login paths
-app.post(
-  "/signup",
-  userController.registerUser,
-  (req, res) => {
-    console.log("clicked signup button");
-    res.redirect("/home");
-    //res.sendFile(path.join(__dirname, "../html-scss/index.html"));
-  }
-);
+app.post("/signup", userController.registerUser, (req, res) => {
+  console.log("clicked signup button");
+  res.redirect("/home");
+  //res.sendFile(path.join(__dirname, "../html-scss/index.html"));
+});
 
 app.post('/login', 
   passport.authenticate('local', { failureRedirect: '/login' }),
@@ -78,7 +71,6 @@ app.get('/auth/google/callback',
     passport.authenticate('google', {
           })
 )
-
 
 app.get("/home", (req, res) => {
   res.sendFile(path.join(__dirname, "../html-scss/index.html"));
