@@ -13,6 +13,9 @@ const userController = require("./controllers/userController");
 const app = express();
 const PORT = 3000;
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 //Configure Session Storage
 app.use(
   cookieSession({
@@ -36,8 +39,7 @@ const checkUserLoggedIn = (req, res, next) => {
 const apiRouter = require("./api/api_router.js");
 const libraryRouter = require("./api/libraryRouter.js");
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+
 
 app.get("/", (req, res) => {
   // res.redirect("/home");
@@ -71,7 +73,8 @@ app.get(
 
 app.get("/auth/google/callback", passport.authenticate('google', { failureRedirect: '/failed' }),
   function(req, res, next){
-    res.redirect('/');
+    res.redirect('http://localhost:8080/home');
+    next();
   }
 );
 
