@@ -38,16 +38,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.redirect("/home");
+  // res.redirect("/home");
+  res.sendFile(path.join(__dirname, "../html-scss/index.html"));
+
 });
 
 //paths for static files
-app.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname, "../html-scss/login.html"));
-});
+// app.get("/login", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../html-scss/login.html"));
+// });
 
 app.get("/signup", (req, res) => {
-  res.sendFile(path.join(__dirname, "../html-scss/signup.html"));
+  res.sendFile(path.join(__dirname, "../html-scss/index.html"));
 });
 
 //signup and login paths
