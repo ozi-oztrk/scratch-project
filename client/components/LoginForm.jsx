@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Redirect, withRouter } from "react-router-dom";
 import "../../html-scss/style.css";
 
@@ -22,7 +22,12 @@ function LoginForm() {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({email: email, password: password})
-    }).then(response => console.log(response))
+    }).then(response => {
+      if (response.type === 'basic'){
+        console.log(response)
+        setRedirect(true);
+      }
+    })
   };
 
   const handleSubmitGoogle = async (event) => {
@@ -32,22 +37,22 @@ function LoginForm() {
       console.log(result);
     }
   };
-  useEffect(() => {
     if (redirect === true) {
+      console.log('redirect attempt in useEffect')
       return (
         <Redirect
           to={{
-            pathname: "/Home",
+            pathname: "/home",
             state: {
               password: password,
-              email: email,
-              fullName: fullName,
+              email: email
+              // fullName: fullName,
             },
           }}
         />
       );
-    }
-  });
+    };
+  // });
 
   return (
     <div id="signInBox">
