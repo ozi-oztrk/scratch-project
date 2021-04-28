@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Redirect, withRouter } from 'react-router-dom';
-
+import render from 'react'
  
 function SignupForm() {
   const [value, setValue] = useState('');
@@ -35,18 +35,16 @@ function SignupForm() {
   //   }).then(result => console.log(result))
   }
 
-  useEffect(()=> {
-    if (redirect === true){
-      return <Redirect to={{
-        pathname: '/Home',
-        state: {
-          email: email,
-          password: password,
-          fullName: fullName
+  if (redirect === true){
+    return <Redirect to={{
+      pathname: '/Home',
+      state: {
+        email: email,
+        password: password,
+      fullName: fullName
         }
-      }} />;
-    }
-  })
+    }} />;
+  }
 
   return (
     <div id="signInBox">

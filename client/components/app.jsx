@@ -5,9 +5,8 @@ import Login from "./Login.jsx";
 import Signup from "./Signup.jsx";
 export default function App() {
   return (
-    <div id="welcomeContainer">
-      <h1>Welcome to Better Reads</h1>
-      <main>
+    // <div id="welcomeContainer">
+      <main id="bodyDiv">
         <Router>
           <Switch>
             <Route exact path="/signup" component={Signup} />
@@ -16,6 +15,6 @@ export default function App() {
           </Switch>
         </Router>
       </main>
-    </div>
+    // </div>
   );
 }
