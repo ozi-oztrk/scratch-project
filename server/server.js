@@ -25,6 +25,10 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.get('/failed', (req, res) => {
+  res.send('<h1>Log in Failed :(</h1>');
+});
+
 const checkUserLoggedIn = (req, res, next) => {
   req.user ? next() : res.sendStatus(401);
 };
@@ -56,21 +60,20 @@ app.post("/signup", userController.registerUser, (req, res) => {
   //res.sendFile(path.join(__dirname, "../html-scss/index.html"));
 });
 
-app.post('/login', 
-  passport.authenticate('local', { failureRedirect: '/login' }),
-  function(req, res) {
-    res.redirect('/home');
-  });
+app.post("/login", passport.authenticate("local", {}), function (req, res) {
+  res.redirect("/home");
+});
 
-app.get('/loginGoogle',
-  passport.authenticate('google', {scope:
-  ['email', 'profile']}
-));
+app.get(
+  "/auth/google",
+  passport.authenticate("google", { scope: ["email", "profile"] })
+);
 
-app.get('/auth/google/callback',
-    passport.authenticate('google', {
-          })
-)
+app.get("/auth/google/callback", passport.authenticate('google', { failureRedirect: '/failed' }),
+  function(req, res, next){
+    res.redirect('/');
+  }
+);
 
 app.get("/home", (req, res) => {
   res.sendFile(path.join(__dirname, "../html-scss/index.html"));
