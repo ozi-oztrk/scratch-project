@@ -94,11 +94,11 @@
             } */
       </style>
     <div id="signInBox">
-        <form id="form" method="POST" action='/login' enctype="application/x-www-form-urlencoded">
+        <form id="form" type="submit" method="POST" action='/login' enctype="application/JSON">
             <h1>Log In</h1>
             <div id='infoBox'>
-                <input class="input" name="username" type="text" placeholder="username" autocomplete="off"></input><br/>
-                <input class="input"name="password" type="password" placeholder="password" autocomplete="off"></input><br/>
+                <input class="input" id="username" name="username" type="text" placeholder="username" autocomplete="off"></input><br/>
+                <input class="input" id='password' name="password" type="password" placeholder="password" autocomplete="off"></input><br/>
                 <input  id="button" type='submit' value='login'/>
                 <a id="signInLink" href="/signup">Sign Up</a>
             </div>
@@ -110,6 +110,26 @@
             <img src="https://lh3.googleusercontent.com/proxy/25jOGp9TQv11iDeW9oruRW4Gv8Aw0seUA5NSvu1BhbDZ95wkGNkIjtB5MTRg_PxGo9swqrgTpYL18iu_8uJQS7KMkXTtCaBn0a2FijavXdoLA0_-s85XVJYQDXaWYyLBwZr7MbUG"id="wunderpuss" height="200px" width="240px">
         </div> -->
     <div id="root"></div>
+
+    <script>
+      const form = document.getElementById('form');
+      const username = document.getElementById('username')
+      const password = document.getElementById('password');
+      
+      form.addEventListener('submit', (req, res) => {
+          fetch('/login', {
+          method: 'POST', 
+          headers: {
+            'Content-Type': 'Application/JSON'
+          },
+          data: {
+            username: username.value,
+            password: password.value
+          }
+        }).then(res => res.json())
+          .then(console.log('logged in with' + res))
+      })
+    </script>
   </body>
 </html>
 

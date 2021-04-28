@@ -5,7 +5,7 @@ import axios from "axios";
 export default function Search() {
   const [searchBar, setSearchBar] = useState("");
   const [results, setResults] = useState([]);
-
+//
   const handleSearch = (e) => {
     setSearchBar(e.target.value);
   };
@@ -15,15 +15,16 @@ export default function Search() {
     e.stopPropagation();
    
 
-    const requestURI = encodeURI("/api/".concat(searchBar));
+    // const requestURI = encodeURI("/api/".concat(searchBar));
     
     // axios.get('/api/ulysses')
     axios
-      .get(requestURI)
+      .get(`https://www.googleapis.com/books/v1/volumes?q=${searchBar}&key=AIzaSyBvzRvXUMUGGeATujnaMUbaQS9dxclLbOk`)
       // .then((res) => JSON.parse(res))
       .then((data) => {
-        
-        setResults(data.data.items);
+        if (data){
+          setResults(data.data.items);
+        }
       })
       .catch((err) => {
         if (err) console.log(err);
@@ -69,7 +70,7 @@ export default function Search() {
       <br/>
       <br/>
       <br/>
-      {results.length > 0 ? renderResults() : ""}
+      {results ? renderResults() : null} 
     </div>
   );
 }
