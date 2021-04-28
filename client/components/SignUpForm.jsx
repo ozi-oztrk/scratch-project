@@ -4,6 +4,7 @@ import { Redirect, withRouter } from 'react-router-dom';
 
  
 function SignupForm() {
+  const [value, setValue] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
@@ -11,7 +12,7 @@ function SignupForm() {
   const [redirect, setRedirect] = useState(false);
 
   const handleChange = (event) => {
-    value = event.target.value;
+    value = event.value;
     [event.target.name] = setValue(value);
   }
 
@@ -44,10 +45,10 @@ function SignupForm() {
 
   return (
     <div id="signInBox">
-        <form id="form" type="submit" method="POST" action='/signup' enctype="application/JSON">
+        <form id="form" type="submit" onsSubmit={handleSubmit} method="POST" action='/signup' enctype="application/JSON">
             <h1>Log In</h1>
             <div id='infoBox'>
-                <input class="input" value={username} id="loginUsernameInput" name="username" type="text" placeholder="username" onChange={e => setUsername}></input><br/>
+                <input class="input" value={username} id="loginUsernameInput" name="username" type="text" placeholder="username" onChange={handleChange}></input><br/>
                 <input class="input" value={password} id='loginPasswordInput' name="password" type="password" placeholder="password" onChange={e => setPassword}></input><br/>
                 <input class="input" value={fullName} id="loginFullNameInput" name="username" type="text" placeholder="username" onChange={e => setFullName}></input><br/>
                 <input class="input" value={email} id='loginEmailInput' name="password" type="password" placeholder="password" onChange={e => setEmail}></input><br/>

@@ -24,6 +24,7 @@
     "bcryptjs": "^2.4.3",
     "concurrently": "^6.0.2",
     "cookie-session": "^1.4.0",
+    "core-js": "^3.11.1",
     "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
     "eslint": "^7.25.0",
