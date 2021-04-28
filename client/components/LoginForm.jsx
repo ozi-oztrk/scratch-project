@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Redirect, withRouter } from 'react-router-dom';
+import '../../html-scss/style.css'
 
 function LoginForm() {
   const [value, setValue] = useState('')
@@ -48,7 +49,7 @@ function LoginForm() {
                 <input className="input" value={email} id='loginEmailInput' name="password" type="email" placeholder="email" onChange={e => setEmail(e.target.value)}></input><br/>
                 <input className="input" value={password} id='loginPasswordInput' name="password" type="password" placeholder="password" onChange={e => setPassword(e.target.value)}></input><br/>
                 <input  id="button" type='submit' value='login'/>
-                <a id="signInLink" href="/signup">Log In</a>
+                <a id="signInLink" href="/signup">Sign Up</a>
             </div>       
                  {/* <img id="logo" src="/client/assets/BR_Logo_White.png" height="150px" width="150px"/>  */}
         </form>

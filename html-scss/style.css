@@ -18,14 +18,14 @@ nav {
   width: 200px; 
 }
 
-  body {
+  /* body { */
               /* background-color: cornflowerblue; */
-              background-image: url(https://i.ytimg.com/vi/YQc4WT0yDH4/maxresdefault.jpg); 
+              /* background-image: url(https://i.ytimg.com/vi/YQc4WT0yDH4/maxresdefault.jpg); 
               height: 100%;
               width: clamp(200px, 100%, 1280px);
-              background-size: cover;
+              background-size: cover; */
               /* background-repeat: no-repeat; */
-          }
+          /* } */
           #signInBox  {
               height: 240px;
               display: flex;

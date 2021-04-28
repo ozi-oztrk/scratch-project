@@ -3,11 +3,10 @@ import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './Home.jsx';
 import Login from './Login.jsx';
 import Signup from './Signup.jsx';
-
 export default function App() {
   return(
 
-    <div>
+    <div id="welcomeContainer">
       <h1>Welcome to Better Reads</h1>
       <main>
       <Router>
@@ -29,5 +28,4 @@ export default function App() {
       </main> 
     </div>
   )
-
 }
