@@ -36,16 +36,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.redirect("/home");
+  // res.redirect("/home");
+  res.sendFile(path.join(__dirname, "../html-scss/index.html"));
 });
 
 //paths for static files
-app.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname, "../html-scss/login.html"));
-});
+// app.get("/login", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../html-scss/login.html"));
+// });
 
 app.get("/signup", (req, res) => {
-  res.sendFile(path.join(__dirname, "../html-scss/signup.html"));
+  res.sendFile(path.join(__dirname, "../html-scss/index.html"));
 });
 
 //signup and login paths
@@ -55,13 +56,21 @@ app.post("/signup", userController.registerUser, (req, res) => {
   //res.sendFile(path.join(__dirname, "../html-scss/index.html"));
 });
 
-app.post(
-  "/login",
-  passport.authenticate("local", { failureRedirect: "/login" }),
-  function (req, res) {
-    res.redirect("/home");
-  }
-);
+app.post('/login', 
+  passport.authenticate('local', { failureRedirect: '/login' }),
+  function(req, res) {
+    res.redirect('/home');
+  });
+
+app.get('/loginGoogle',
+  passport.authenticate('google', {scope:
+  ['email', 'profile']}
+));
+
+app.get('/auth/google/callback',
+    passport.authenticate('google', {
+          })
+)
 
 app.get("/home", (req, res) => {
   res.sendFile(path.join(__dirname, "../html-scss/index.html"));

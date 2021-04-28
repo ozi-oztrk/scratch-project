@@ -1,31 +1,30 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Redirect, withRouter } from 'react-router-dom';
 
  
 function SignupForm() {
-  const [username, setUsername] = useState('');
+  const [value, setValue] = useState('');
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [redirect, setRedirect] = useState(false);
 
   const handleChange = (event) => {
-    value = event.target.value;
+    value = event.value;
     [event.target.name] = setValue(value);
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const result = await axios.post({
-    username: username,
+    axios.post('/signup', {
+    email: email,
     password: password,
-    fullName: fullName,
-    email: email
-      });
-    if (result){
-      setRedirect(true);
-    }
+    fullName: fullName
+      }).then(result => {
+        console.log(result)
+        if (result) setRedirect(true);
+      })
   }
 
   useEffect(()=> {
@@ -33,10 +32,9 @@ function SignupForm() {
       return <Redirect to={{
         pathname: '/Home',
         state: {
-          username: username,
+          email: email,
           password: password,
-          fullName: fullName,
-          email: email
+          fullName: fullName
         }
       }} />;
     }
@@ -44,15 +42,14 @@ function SignupForm() {
 
   return (
     <div id="signInBox">
-        <form id="form" type="submit" method="POST" action='/signup' enctype="application/JSON">
-            <h1>Log In</h1>
+        <form id="form" type="submit" onSubmit={handleSubmit} method="POST" action='/signup' encType="application/JSON">
+            <h1>Sign Up</h1>
             <div id='infoBox'>
-                <input class="input" value={username} id="loginUsernameInput" name="username" type="text" placeholder="username" onChange={e => setUsername}></input><br/>
-                <input class="input" value={password} id='loginPasswordInput' name="password" type="password" placeholder="password" onChange={e => setPassword}></input><br/>
-                <input class="input" value={fullName} id="loginFullNameInput" name="username" type="text" placeholder="username" onChange={e => setFullName}></input><br/>
-                <input class="input" value={email} id='loginEmailInput' name="password" type="password" placeholder="password" onChange={e => setEmail}></input><br/>
+                <input className="input" value={email} id='loginEmailInput' name="email" type="email" placeholder="Email" onChange={e => setEmail(e.target.value)} required></input><br/>
+                <input className="input" value={password} id='loginPasswordInput' name="password" type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} required></input><br/>
+                <input className="input" value={fullName} id="loginFullNameInput" name="username" type="text" placeholder="Full Name" onChange={e => setFullName(e.target.value)} required></input><br/>
                 <input  id="button" type='submit' value='login'/>
-                <a id="signInLink" href="/signup">Sign Up</a>
+                <a id="signInLink" href="/signup">Log In</a>
             </div>       
                  {/* <img id="logo" src="/client/assets/BR_Logo_White.png" height="150px" width="150px"/>  */}
         </form>
