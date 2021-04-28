@@ -53,8 +53,7 @@ app.get("/signup", (req, res) => {
 //signup and login paths
 app.post(
   "/signup",
-  userController.createUser,
-  userController.addToSQL,
+  userController.registerUser,
   (req, res) => {
     console.log("clicked signup button");
     res.redirect("/home");
@@ -62,11 +61,11 @@ app.post(
   }
 );
 
-app.post("/login", userController.verifyUser, (req, res) => {
-  console.log("clicked login button");
-  res.redirect("/home");
-  //res.sendFile(path.join(__dirname, "../html-scss/index.html"));
-});
+app.post('/login', 
+  passport.authenticate('local', { failureRedirect: '/login' }),
+  function(req, res) {
+    res.redirect('/home');
+  });
 
 app.get("/home", (req, res) => {
   res.sendFile(path.join(__dirname, "../html-scss/index.html"));
