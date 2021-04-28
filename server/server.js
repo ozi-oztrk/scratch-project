@@ -62,7 +62,7 @@ app.post('/login',
     res.redirect('/home');
   });
 
-app.get('/loginWithGoogle',
+app.get('/loginGoogle',
   passport.authenticate('google', {scope:
   ['email', 'profile']}
 ));
