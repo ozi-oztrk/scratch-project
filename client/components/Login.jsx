@@ -1,8 +1,8 @@
 import React from "react";
 import LoginForm from "./LoginForm.jsx"
-import withRouter from 'react-router-dom'
+import{ withRouter } from 'react-router-dom'
 
-const Login = () => {
+function Login( ) {
   return (
     <div className="loginContainer">
     <div className="loginFormContainer"> 
@@ -13,4 +13,4 @@ const Login = () => {
   )
 }
 
-export default withRouter(Login)
+export default withRouter(Login);
