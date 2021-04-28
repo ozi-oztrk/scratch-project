@@ -38,7 +38,6 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   // res.redirect("/home");
   res.sendFile(path.join(__dirname, "../html-scss/index.html"));
-
 });
 
 //paths for static files
