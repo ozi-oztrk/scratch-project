@@ -85,7 +85,7 @@ function LoginForm() {
           </a>
         </div>
         <div id="googleLogin">
-          <a href="/auth/google">Login with Google</a>
+          <a href="auth/google/">Login with Google</a>
         </div>
         {/* <img id="logo" src="/client/assets/BR_Logo_White.png" height="150px" width="150px"/>  */}
       </form>
