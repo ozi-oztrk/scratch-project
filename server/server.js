@@ -69,6 +69,17 @@ app.post('/login',
     res.redirect('/home');
   });
 
+app.get('/loginWithGoogle',
+  passport.authenticate('google', {scope:
+  ['email', 'profile']}
+));
+
+app.get('/auth/google/callback',
+    passport.authenticate('google', {
+          })
+)
+
+
 app.get("/home", (req, res) => {
   res.sendFile(path.join(__dirname, "../html-scss/index.html"));
 });
