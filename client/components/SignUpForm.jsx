@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { Redirect, withRouter } from 'react-router-dom';
 
-  const SignUpForm  = () => {
+  const SignupForm  = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
@@ -38,7 +38,7 @@ import { Redirect, withRouter } from 'react-router-dom';
 
   return (
     <div id="signInBox">
-        <form id="form" type="submit" method="POST" action='/login' enctype="application/JSON">
+        <form id="form" type="submit" method="POST" action='/signup' enctype="application/JSON">
             <h1>Log In</h1>
             <div id='infoBox'>
                 <input class="input" value={username} id="loginUsernameInput" name="username" type="text" placeholder="username" onChange={e => setUsername}></input><br/>
@@ -54,4 +54,4 @@ import { Redirect, withRouter } from 'react-router-dom';
   )
 }
 
-export default withRouter(SignUpForm);
+export default withRouter(SignupForm);

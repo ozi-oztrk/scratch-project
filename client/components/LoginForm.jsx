@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { Redirect, withRouter } from 'react-router-dom';
 
-  const SignUpFor  = () => {
+  const LoginForm  = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
@@ -14,10 +14,12 @@ import { Redirect, withRouter } from 'react-router-dom';
     const result = await axios.post({
     username: username,
     password: password,
-    fullName: fullName,
-    email: email
       });
     if (result){
+      setUsername(result.data.username);
+      setPassword(result.data.passowrd);
+      setFullName(result.data.fullName);
+      setEmail(result.data.email);
       setRedirect(true);
     }
   }
@@ -46,7 +48,7 @@ import { Redirect, withRouter } from 'react-router-dom';
                 <input class="input" value={fullName} id="loginFullNameInput" name="username" type="text" placeholder="username" onChange={e => setFullName}></input><br/>
                 <input class="input" value={email} id='loginEmailInput' name="password" type="password" placeholder="password" onChange={e => setEmail}></input><br/>
                 <input  id="button" type='submit' value='login'/>
-                <a id="signInLink" href="/signup">Sign Up</a>
+                <a id="signInLink" href="/signup">Log In</a>
             </div>       
                  {/* <img id="logo" src="/client/assets/BR_Logo_White.png" height="150px" width="150px"/>  */}
         </form>
