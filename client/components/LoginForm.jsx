@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Redirect, withRouter } from "react-router-dom";
 import "../../html-scss/style.css";
 
@@ -14,18 +14,20 @@ function LoginForm() {
     [event.target.name] = value;
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    const result = await axios.post({
-      email: email,
-      password: password,
-    });
-    if (result) {
-      console.log(result);
-      setEmail(result.data.email);
-      setPassword(result.data.passowrd);
-      setRedirect(true);
-    }
+    fetch('/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({email: email, password: password})
+    }).then(response => {
+      if (response.type === 'basic'){
+        console.log(response)
+        setRedirect(true);
+      }
+    })
   };
 
   const handleSubmitGoogle = async (event) => {
@@ -35,32 +37,26 @@ function LoginForm() {
       console.log(result);
     }
   };
-  useEffect(() => {
     if (redirect === true) {
+      console.log('redirect attempt in useEffect')
       return (
         <Redirect
           to={{
-            pathname: "/Home",
+            pathname: "/home",
             state: {
               password: password,
-              email: email,
-              fullName: fullName,
+              email: email
+              // fullName: fullName,
             },
           }}
         />
       );
-    }
-  });
+    };
+  // });
 
   return (
     <div id="signInBox">
-      <form
-        id="form"
-        type="submit"
-        method="POST"
-        action="/login"
-        onSubmit={handleSubmit}
-      >
+      <form id="form" type="submit" onSubmit={handleSubmit} method="POST" action="/login">
         <h1>Log In</h1>
         <div id="infoBox">
           <input
@@ -88,8 +84,9 @@ function LoginForm() {
             Sign Up
           </a>
         </div>
-        <button onClick={handleSubmitGoogle}>Login With Google</button>
-
+        <div id="googleLogin">
+          <a href="auth/google/">Login with Google</a>
+        </div>
         {/* <img id="logo" src="/client/assets/BR_Logo_White.png" height="150px" width="150px"/>  */}
       </form>
     </div>

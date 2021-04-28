@@ -4,10 +4,10 @@ $darkColor: rgba(78, 12, 12, 0.95);
 $mainColorTransparent: rgb(116, 20, 20, 0.35);
 $grayColor: rgb(170, 170, 170, 0.9);
 $orangeColor: #eda85ed3;
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
 
 html {
-  font-family: 'Noto Sans'
+  font-family: "Noto Sans";
 }
 
 body {
@@ -16,7 +16,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
-  width:100%;
+  width: 100%;
 }
 
 header {
@@ -136,7 +136,6 @@ nav {
     border-radius: 10px;
   }
 
-
   button,
   #button {
     height: 40px;
@@ -188,3 +187,9 @@ nav {
   }
 }
 
+#googleLogin {
+  height: 40px;
+  width: 120px;
+  border: 1px solid black;
+  background: white;
+}

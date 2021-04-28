@@ -13,6 +13,9 @@ const userController = require("./controllers/userController");
 const app = express();
 const PORT = 3000;
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 //Configure Session Storage
 app.use(
   cookieSession({
@@ -32,8 +35,7 @@ const checkUserLoggedIn = (req, res, next) => {
 const apiRouter = require("./api/api_router.js");
 const libraryRouter = require("./api/libraryRouter.js");
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+
 
 app.get("/", (req, res) => {
   // res.redirect("/home");
@@ -56,21 +58,23 @@ app.post("/signup", userController.registerUser, (req, res) => {
   //res.sendFile(path.join(__dirname, "../html-scss/index.html"));
 });
 
-app.post('/login', 
-  passport.authenticate('local', { failureRedirect: '/login' }),
-  function(req, res) {
-    res.redirect('/home');
-  });
 
-app.get('/loginGoogle',
-  passport.authenticate('google', {scope:
-  ['email', 'profile']}
-));
+app.post("/login", passport.authenticate("local", {}), function (req, res) {
+  res.redirect("/home");
+});
 
-app.get('/auth/google/callback',
-    passport.authenticate('google', {
-          })
-)
+app.get(
+  "/auth/google",
+  passport.authenticate("google", { scope: ["email", "profile"] })
+);
+
+app.get("/auth/google/callback", passport.authenticate('google', { failureRedirect: '/failed' }),
+  function(req, res, next){
+    res.redirect('http://localhost:8080/home');
+    next();
+  }
+);
+
 
 app.get("/home", (req, res) => {
   res.sendFile(path.join(__dirname, "../html-scss/index.html"));
