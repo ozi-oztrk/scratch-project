@@ -23,7 +23,8 @@ passport.use(new GoogleStrategy({
   }
 ));
 
-passport.use(new LocalStrategy((email, password, cb) => {
+passport.use(new LocalStrategy({usernameField:"email", passwordField:"password"},(email, password, cb) => {
+  console.log('in passport localstrategy promise ')
   db.query('SELECT user_id, email, password FROM accounts WHERE email=$1', [email], (err, result) => {
     if(err) {
       console.log('Getting error immediately.')
@@ -35,7 +36,7 @@ passport.use(new LocalStrategy((email, password, cb) => {
       bcrypt.compare(password, first.password, function(err, res) {
         if(res) {
           console.log(first)
-          cb(null, { id: first.user_id, email: first.email })
+          return cb(null, { id: first.user_id, email: first.email })
          } else {
           cb(null, false)
          }

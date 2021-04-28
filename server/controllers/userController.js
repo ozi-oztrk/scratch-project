@@ -7,17 +7,10 @@ userController.registerUser = async (req, res, next) => {
   // hashing password
   const hashedPassword = await bcrypt.hash(password, 10);
 
-<<<<<<< HEAD
- try {
-   // declare query params array for insertion
-   const params = [email, hashedPassword];
-   const queryString = `
-=======
   try {
     // declare query params array for insertion
     const params = [email, hashedPassword];
     const queryString = `
->>>>>>> f58c35b429e88ffc0d0d48d1e3626386b50a9e46
    INSERT INTO accounts (email, password)
    VALUES ($1, $2)`;
     // calling query method to insert user
