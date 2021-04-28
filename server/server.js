@@ -1,8 +1,9 @@
 const express = require("express");
 const path = require("path");
-const mongoose = require("mongoose");
+const cookieSession = require('cookie-session');
 // const cookieParser = require('cookie-parser');
 const bodyParser = require("body-parser");
+require('./passport')
 
 const userController = require("./controllers/userController");
 // const cookieController = require("./controllers/cookieController");
@@ -11,19 +12,22 @@ const userController = require("./controllers/userController");
 const app = express();
 const PORT = 3000;
 
-//mongo database log in: username: rschelly, password: mongopassword
-const mongoURI =
-  "mongodb+srv://rschelly:mongopassword@cluster0.b5qc7.mongodb.net/BetterReads?retryWrites=true&w=majority";
-mongoose.connect(
-  mongoURI,
-  { useNewUrlParser: true },
-  { useUnifiedTopology: true }
-);
-const { connection } = mongoose;
+//Configure Session Storage
+app.use(cookieSession({
+  name: 'session-name',
+  keys:['key1','key2']
+}));
 
-connection.once("open", () => {
-  console.log("connected to mongoose using once");
-});
+//Configure Passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+const checkUserLoggedIn = (req, res, next) => {
+  req.user ? next(): res.sendStatus(401)
+}
+
+
 
 const apiRouter = require("./api/api_router.js");
 const libraryRouter = require("./api/libraryRouter.js");
