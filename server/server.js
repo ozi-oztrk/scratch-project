@@ -3,7 +3,9 @@ const path = require("path");
 const cookieSession = require('cookie-session');
 // const cookieParser = require('cookie-parser');
 const bodyParser = require("body-parser");
-const passport = require('./passport')
+const passport = require('passport');
+require('./passport')
+
 
 const userController = require("./controllers/userController");
 // const cookieController = require("./controllers/cookieController");
