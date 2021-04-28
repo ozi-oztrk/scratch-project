@@ -56,13 +56,21 @@ app.post("/signup", userController.registerUser, (req, res) => {
   //res.sendFile(path.join(__dirname, "../html-scss/index.html"));
 });
 
-app.post(
-  "/login",
-  passport.authenticate("local", { failureRedirect: "/login" }),
-  function (req, res) {
-    res.redirect("/home");
-  }
-);
+app.post('/login', 
+  passport.authenticate('local', { failureRedirect: '/login' }),
+  function(req, res) {
+    res.redirect('/home');
+  });
+
+app.get('/loginWithGoogle',
+  passport.authenticate('google', {scope:
+  ['email', 'profile']}
+));
+
+app.get('/auth/google/callback',
+    passport.authenticate('google', {
+          })
+)
 
 app.get("/home", (req, res) => {
   res.sendFile(path.join(__dirname, "../html-scss/index.html"));
