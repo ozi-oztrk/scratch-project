@@ -3,12 +3,13 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import CurrentlyReading from "./CurrentlyReading.jsx";
 import Reviews from "./Reviews.jsx";
 import Complete from "./Complete.jsx";
-import Login from "./Login.jsx";
-import Signup from "./Signup.jsx";
+// import Login from "./Login.jsx";
+// import Signup from "./Signup.jsx";
 import Profile from "./Profile.jsx";
 import Search from "./Search.jsx";
 import Main from "./Main.jsx";
 import ToBeRead from "./ToBeRead.jsx";
+
 
 // Displays the profile element and links to other components
 // Main is what will display upon initial render
@@ -39,8 +40,8 @@ export default function NavBar() {
         </div>
       </nav>
       <Switch>
-        <Route exact path ="/signup" component={Signup} />
-        <Route exact path ="/login" component={Login} />
+        {/* <Route exact path ="/signup" component={Signup} /> */}
+        {/* <Route path ="/" component={Login} /> */}
         <Route exact path="/home" component={Main} />
         <Route path="/CurrentlyReading" component={CurrentlyReading} />
         <Route path="/ToBeRead" component={ToBeRead} />
