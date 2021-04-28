@@ -4,13 +4,13 @@ const db = require("../models/libraryModel");
 const userController = {};
 
 userController.registerUser = async (req, res, next) => {
-  const { username, password } = req.body;
+  const { email, password } = req.body;
   // hashing password
   const hashedPassword = await bcrypt.hash(password, 10);
 
  try {
    // declare query params array for insertion
-   const params = [username, hashedPassword];
+   const params = [email, hashedPassword];
    const queryString = `
    INSERT INTO accounts (email, password)
    VALUES ($1, $2)`
