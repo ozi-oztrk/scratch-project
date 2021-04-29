@@ -26,8 +26,8 @@ export default function Main() {
       <h2 id="welcome">Welcome back to Better Reads!</h2>
       <div id="randomQuoteContainer">
         <ul id="randomQuote">
-          <li id="randomText">{quote.text}</li>
-          <li id="author">{quote.author}</li>
+          <li id="randomText">{`"${quote.text}"`}</li>
+          <li id="author">{`- ${quote.author}`}</li>
         </ul>
       </div>
     </div>
