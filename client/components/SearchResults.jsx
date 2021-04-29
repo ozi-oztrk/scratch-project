@@ -5,7 +5,7 @@ export default function SearchResults(props) {
     <div id="searchResult">
       <br />
       <img
-        src={props.result.imageLinks.smallThumbnail}
+        src={props.result.imageLinks.thumbnail}
         width="200px"
         height="269px"
       />
@@ -20,7 +20,7 @@ export default function SearchResults(props) {
             props.result.title,
             props.result.authors[0],
             props.result.pageCount,
-            props.result.imageLinks.smallThumbnail,
+            props.result.imageLinks.thumbnail,
             props.result.industryIdentifiers[0].identifier
           )
         }

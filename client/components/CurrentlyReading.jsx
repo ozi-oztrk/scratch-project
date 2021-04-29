@@ -13,7 +13,7 @@ export default function CurrentlyReading() {
     axios.get("/db/current").then((data) => {
       setBooks(data.data.rows);
     });
-  });
+  },[]);
 
   // function that runs once books have been succesfully fetched
   const renderBooks = () => {
