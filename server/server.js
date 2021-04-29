@@ -71,12 +71,17 @@ app.get("/auth/google/callback", passport.authenticate('google', {successRedirec
   }
 );
 
-app.get('/auth/twitter',passport.authenticate('twitter'));
+app.get('/auth/twitter',passport.authenticate('twitter', { scope : ['email'] }));
 app.get('/auth/twitter/callback',passport.authenticate('twitter', { failureRedirect: '/auth/error' }),
 function(req, res) {
   res.redirect('http://localhost:8080/home');
 });
 
+app.get('/auth/facebook',passport.authenticate('facebook',{ scope : ['email'] }));
+app.get('/auth/facebook/callback',passport.authenticate('facebook', { failureRedirect: '/auth/error' }),
+function(req, res) {
+  res.redirect('http://localhost:8080/home');
+});
 
 app.get("/home", (req, res) => {
   res.sendFile(path.join(__dirname, "../html-scss/index.html"));

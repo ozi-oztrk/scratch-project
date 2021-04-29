@@ -3,8 +3,10 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const LocalStrategy = require('passport-local').Strategy;
 const TwitterStrategy = require('passport-twitter').Strategy;
+const FacebookStrategy = require('passport-facebook').Strategy;
 const db = require("./models/libraryModel");
 const bcrypt = require("bcryptjs");
+
 
 passport.serializeUser(function(user, done) {
     done(null, user);
@@ -14,16 +16,34 @@ passport.deserializeUser(function(user, done) {
     done(null, user);
 });
 
+passport.use(
+  new FacebookStrategy(
+    {
+      clientID: process.env.FACEBOOK_CLIENT_ID,
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+      callbackURL: process.env.FACEBOOK_CALLBACK_URL,
+      profileFields: ["email", "name"]
+    },
+    function(accessToken, refreshToken, profile, done) {
+      console.log(profile._json)
+     
+      
+      done(null, profile);
+    }
+  )
+);
+
 passport.use(new TwitterStrategy({
   consumerKey: process.env.TWITTER_CONSUMER_KEY,
   consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
   callbackURL: process.env.TWITTER_CALLBACK_URL,
+  includeEmail: true
 },
 function(accessToken, refreshToken, profile, cb) {
   console.log('in twitter middleware')
   console.log(profile)
-  const email = profile._json.email;
-  const password = profile._json.sub
+  const email = profile.emails[0].value;
+  const password = profile.id
   const params = [email, password]    
   const queryString = `INSERT INTO accounts (email, password) VALUES ($1, $2) ON CONFLICT DO NOTHING`
   db.query(queryString, params, (err, res) => {
