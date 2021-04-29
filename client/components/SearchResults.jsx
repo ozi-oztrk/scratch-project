@@ -9,12 +9,13 @@ export default function SearchResults(props) {
         width="200px"
         height="269px"
       />
-      <h1>
+      <h2>
         {props.result.title} by {props.result.author}
-      </h1>
-      <h2>{props.result.pageCount}</h2>
+      </h2>
+      <h2>{`${props.result.pageCount} pages`}</h2>
 
       <button
+        id="addBookButton"
         onClick={() =>
           props.addToBeRead(
             props.result.title,
