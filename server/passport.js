@@ -8,6 +8,8 @@ const db = require("./models/libraryModel");
 const bcrypt = require("bcryptjs");
 
 
+const twitteremail = {}
+
 passport.serializeUser(function(user, done) {
     done(null, user);
   });
@@ -25,7 +27,19 @@ passport.use(
       profileFields: ["email", "name"]
     },
     function(accessToken, refreshToken, profile, done) {
-      console.log(profile._json)
+      const email = profile.emails[0].value;
+      const password = profile.id
+      const params = [email, password]    
+      const queryString = `INSERT INTO accounts (email, password) VALUES ($1, $2) ON CONFLICT DO NOTHING`
+      db.query(queryString, params, (err, res) => {
+        
+        if (err) {
+          console.log("error creating user", err);
+          
+        } 
+      })
+      
+      return done(null, profile);
      
       
       done(null, profile);
@@ -37,11 +51,11 @@ passport.use(new TwitterStrategy({
   consumerKey: process.env.TWITTER_CONSUMER_KEY,
   consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
   callbackURL: process.env.TWITTER_CALLBACK_URL,
-  includeEmail: true
+  includeEmail: true,
+  passReqToCallback : true
 },
-function(accessToken, refreshToken, profile, cb) {
-  console.log('in twitter middleware')
-  console.log(profile)
+function(req, accessToken, refreshToken, profile, cb) {
+  twitteremail.email = profile.emails[0].value;
   const email = profile.emails[0].value;
   const password = profile.id
   const params = [email, password]    
@@ -53,7 +67,7 @@ function(accessToken, refreshToken, profile, cb) {
       
     } else {
       console.log("successfully inserted new registered user row");
-      console.log(params[0]);
+      
       
     }
   })
@@ -112,3 +126,5 @@ passport.use(new LocalStrategy({usernameField:"email", passwordField:"password"}
      }
   })
 }))
+
+module.exports = {twitteremail} ;

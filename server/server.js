@@ -43,7 +43,7 @@ app.get("/", (req, res) => {
 
 
 app.get("/signup", (req, res) => {
-  res.sendFile(path.join(__dirname, "../html-scss/index.html"));
+  res.redirect('http://localhost:8080/home');
 });
 
 //signup and login paths
@@ -71,14 +71,18 @@ app.get("/auth/google/callback", passport.authenticate('google', {successRedirec
   }
 );
 
-app.get('/auth/twitter',passport.authenticate('twitter', { scope : ['email'] }));
-app.get('/auth/twitter/callback',passport.authenticate('twitter', { failureRedirect: '/auth/error' }),
+app.get('/auth/twitter', passport.authenticate('twitter', {scope: ['email', 'profile']}));
+app.get('/auth/twitter/callback', passport.authenticate('twitter', {successRedirect:'http://localhost:8080/home', failureRedirect: '/auth/error' }),
 function(req, res) {
+ 
   res.redirect('http://localhost:8080/home');
 });
 
+
+
+
 app.get('/auth/facebook',passport.authenticate('facebook',{ scope : ['email'] }));
-app.get('/auth/facebook/callback',passport.authenticate('facebook', { failureRedirect: '/auth/error' }),
+app.get('/auth/facebook/callback',passport.authenticate('facebook', {successRedirect:'http://localhost:8080/home', failureRedirect: '/auth/error' }),
 function(req, res) {
   res.redirect('http://localhost:8080/home');
 });
