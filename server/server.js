@@ -67,9 +67,15 @@ app.get(
 app.get("/auth/google/callback", passport.authenticate('google', {successRedirect:'http://localhost:8080/home', failureRedirect: '/failed' }),
   function(req, res, next){
     res.redirect('http://localhost:8080/home');
-    next();
+    
   }
 );
+
+app.get('/auth/twitter',passport.authenticate('twitter'));
+app.get('/auth/twitter/callback',passport.authenticate('twitter', { failureRedirect: '/auth/error' }),
+function(req, res) {
+  res.redirect('http://localhost:8080/home');
+});
 
 
 app.get("/home", (req, res) => {
@@ -80,20 +86,6 @@ app.get("/home", (req, res) => {
 app.use("/api/", apiRouter);
 
 app.use("/db/", libraryRouter);
-
-//signup and login paths
-// app.post(
-//   "/signup",
-//   userController.createUser,
-//   userController.addToSQL,
-//   (req, res) => {
-//     res.redirect("/home");
-//   }
-// );
-
-// app.post("/login", userController.verifyUser, (req, res) => {
-//   res.redirect("home");
-// });
 
 // catch all for requests to unknown route
 
