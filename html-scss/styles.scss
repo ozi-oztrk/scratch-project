@@ -185,20 +185,34 @@ main {
     font-size: 15px;
   }
 
+  #bookContainer {
+    display: flex;
+    height: 60%;
+    width: 80%;
+    background: $secondaryColor;
+    color: white;
+    border-radius: 3px;
+    position: relative;
+    top: 10px;
+    // justify-content: center;
+    align-items: center;
+  }
+
   .book,
   .review {
     display: flex;
     flex-direction: column;
     margin: 15px;
     padding: 10px;
-    background-color: $orangeColor;
+    background-color: $secondaryColor;
+    color: white;
     justify-content: start;
     margin-left: 25%;
     margin-top: 20px;
-    width: 500px;
-    min-height: 250px;
-    box-shadow: 2px 2px 2px black;
-    border-radius: 10px;
+    width: 80%;
+    min-height: 40%;
+    // box-shadow: 2px 2px 2px black;
+    border-radius: 3px;
   }
 
   button,

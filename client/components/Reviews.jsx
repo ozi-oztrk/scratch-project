@@ -10,7 +10,7 @@ export default function Reviews() {
   // initial fetch from db for ratings/reviews
   useEffect(() => {
     axios.get("/db/reviews").then((data) => setReviews(data.data.rows));
-  });
+  }, []);
 
   // function that runs once ratings/reviews have populated
   const renderReviews = () => {
