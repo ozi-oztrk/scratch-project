@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Redirect, withRouter } from "react-router-dom";
-import "../../html-scss/style.css";
 
 function LoginForm() {
   const [value, setValue] = useState("");
@@ -86,6 +85,12 @@ function LoginForm() {
         </div>
         <div id="googleLogin">
           <a href="auth/google/">Login with Google</a>
+        </div>
+        <div id="googleLogin">
+          <a href="auth/twitter/">Login with Twitter</a>
+        </div>
+        <div id="googleLogin">
+          <a href="auth/facebook/">Login with Facebook</a>
         </div>
         {/* <img id="logo" src="/client/assets/BR_Logo_White.png" height="150px" width="150px"/>  */}
       </form>

@@ -55,7 +55,7 @@ function SignupForm() {
                 <input className="input" value={password} id='loginPasswordInput' name="password" type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} required></input><br/>
                 <input className="input" value={fullName} id="loginFullNameInput" name="username" type="text" placeholder="Full Name" onChange={e => setFullName(e.target.value)}></input><br/>
                 <input  id="button" type='submit' value='Signup'/>
-                <a id="signInLink" href="/signup">Login</a>
+                <a id="signInLink" href="/">Login</a>
             </div>       
                  {/* <img id="logo" src="/client/assets/BR_Logo_White.png" height="150px" width="150px"/>  */}
         </form>
