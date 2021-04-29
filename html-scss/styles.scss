@@ -1,11 +1,11 @@
 $mainColor: #082295ce;
 $mainColorAlt: #0c76f82b;
-$secondaryColor: #4ff80184;
-$darkColor: #8590aa;
-$tertiaryColor: #bff609;
-$tertiaryAlt: #d3f609;
-$auxiliaryColor: #301a4b;
-$headerColor: #011f475c;
+$secondaryColor:#4ff80184;
+$darkColor: #8590AA;
+$tertiaryColor: #D3F609;
+$tertiaryAlt:#d3f609d5;
+$auxiliaryColor: #301A4B; 
+$headerColor:  #011f475c;
 $redOrange: #b2388d;
 $mainColorTransparent: #74141459;
 $grayColor: #aaaaaae6;
@@ -155,9 +155,10 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Ubuntu", sans-serif;
-
-  #randomQuoteContainer {
+  font-family: 'Ubuntu', sans-serif;
+  overflow-y: scroll;
+  
+  #randomQuoteContainer{
     height: 300px;
     width: 80%;
     background: $secondaryColor;
@@ -206,28 +207,29 @@ main {
     height: 40px;
     width: 140px;
     font-size: 1em;
-    border-radius: 5px;
-    color: $secondaryColor;
-    background-color: $mainColor;
+    // border-radius: 5px;
+    color: $auxiliaryColor;
+    background-color: $tertiaryColor;
     border: 1px solid rgba(78, 12, 12, 0.95);
   }
   button:hover,
   #button:hover {
-    background-color: $darkColor;
+    background-color:$darkColor;
     color: $secondaryColor;
     cursor: pointer;
     box-shadow: 1px 1px 1px black;
+    transition: .3s;
   }
 
   input {
-    width: 400px;
+    width: 350px;
     height: 40px;
-    border-radius: 10px;
+    border-radius: 3px;
     font-size: 1.2em;
     border: 1px solid $darkColor;
-    box-shadow: 1px 1px 1px black;
-    margin-bottom: 5px;
-    background-color: $secondaryColor;
+    // box-shadow: 1px 1px 1px black;
+    // margin-bottom: 5px;
+    // background-color: $secondaryColor;
   }
 
   #welcome {
@@ -237,13 +239,27 @@ main {
   }
 
   #searchBar {
-    width: 500px;
+    width: 350px;
     height: 40px;
-    margin-left: 20px;
-    border-radius: 10px;
+    border-radius: 3px;
+  }
+  #searchButton{
+  height: 40px;
+    width: 140px;
+    font-size: 1em;
+    border-radius: 5px;
+    color: $auxiliaryColor;
+    background-color: $tertiaryColor;
+    border: 1px solid rgba(78, 12, 12, 0.95);
+  }
+
+  #findBookTitle{
+    color: white;
   }
   #searchResult {
-    background-color: $orangeColor;
+    background-color: $secondaryColor;
+    color: white;
+    min-width: 350px;
     margin: 20px;
     padding: 5px;
     text-align: center;
@@ -253,6 +269,22 @@ main {
   }
 }
 
+#addBookButton{
+  height: 40px;
+  width: 140px;
+  background-color: $tertiaryColor;
+  color: $auxiliaryColor;
+  border-radius: none;
+  border: none;
+  font-size: 14px;
+}
+#addBookButton:hover {
+  background-color: $mainColor;
+  color: white;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px black;
+  transition: 1s;
+}
 // @media screen and (max-width:480px){
 #root {
   height: 100%;
@@ -286,9 +318,10 @@ main {
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: rgba(79, 248, 1, 0.519);
-}
+  justify-content:center;
+  background: $secondaryColor;
+  }
+
 
 .input {
   height: 30px;
@@ -300,7 +333,7 @@ main {
   border: 1px solid rgb(191, 246, 9);
 }
 #loginTitle {
-  color: rgb(191, 246, 9);
+  color: $tertiaryColor;
   font-size: 48px;
   font-family: "Fredoka One", cursive;
   font-weight: 700;
@@ -308,7 +341,7 @@ main {
 
 #loginSubtext {
   font-family: helvetica;
-  color: rgb(191, 246, 9);
+  color: $tertiaryColor;
   margin-top: 0;
 }
 #button {
@@ -316,7 +349,7 @@ main {
   height: 30px;
   margin: 15px;
   border-radius: 5px;
-  background: rgb(191, 246, 9);
+  background: $tertiaryColor;
   color: rgb(71, 67, 67);
   font-size: 1em;
 }
@@ -355,17 +388,18 @@ main {
 
 #loginLink {
   margin-left: 27%;
-  margin-top: 10px;
-  font-size: 0.8em;
-  color: rgb(191, 246, 9);
-}
+  margin-top: 10px;         
+  font-size: .8em;
+  color:  $tertiaryColor;
+}   
 
 #signInLink {
   margin-left: 42%;
-  margin-top: 20px;
-  font-size: 0.8em;
-  color: rgb(191, 246, 9);
-}
+  margin-top: 20px;         
+  font-size: .8em;
+  color:  $tertiaryColor;
+}   
+
 
 #socialLoginContainer {
   display: flex;
