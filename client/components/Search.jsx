@@ -55,7 +55,7 @@ export default function Search() {
 
   return (
     <div className="bodyDiv">
-      <h1>Find a book</h1>
+      <h1 id="findBookTitle">Find a book</h1>
       <form
         id="searchBar"
         name="bookSearch"
