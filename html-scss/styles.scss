@@ -192,7 +192,11 @@ nav {
     box-shadow: 2px 2px 2px black;
   }
 }
-#root{
+
+
+
+@media screen and (max-width:480px){
+  #root{
   height: 100%;
   width: 100%;
   background-image: url(https://i.ytimg.com/vi/YQc4WT0yDH4/maxresdefault.jpg);
@@ -228,8 +232,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content:center;
-  border-radius: 5px;
-  border: 3px solid  rgb(188, 200, 17);
+  // border-radius: 5px;
+  // border: 3px solid  rgb(188, 200, 17);
   background: rgba(79, 248, 1, 0.519);
   }
 
@@ -240,10 +244,10 @@ nav {
   border-radius: 5px;
   font-size: 1em;
   text-align: center;
-  border:1px solid rgb(188, 200, 17);
+  border:1px solid rgb(191, 246, 9);
 }
 #loginTitle {
-  color: rgb(188, 200, 17);
+  color: rgb(191, 246, 9);
   font-size: 48px;
   font-family: 'Fredoka One', cursive;
   font-weight: 700;
@@ -251,7 +255,7 @@ nav {
 
 #loginSubtext {
   font-family: helvetica;
-  color: rgb(188, 200, 17);
+  color: rgb(191, 246, 9);
   margin-top: 0;
 }
 #button {
@@ -265,27 +269,29 @@ nav {
     margin-left: 15%;
     margin-right: 40px;
 }
-  #button:hover {
-    cursor: pointer;
-    background-color: rgb(224, 223, 223);
-    box-shadow: 1px 1px 1px rgb(10, 10, 10);
-  }
- #loginForm {
-    height: 550px;
-    width: 400px;
-    border-radius: 5px;
-    box-shadow: 1px 10px 11px 1px rgba(0,0,0,0.52);
-    // border: 2px solid $tertiaryColor;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+#button:hover {
+  cursor: pointer;
+  background-color: rgb(224, 223, 223);
+  box-shadow: 1px 1px 1px rgb(10, 10, 10);
 }
+
+#loginForm {
+  height: 550px;
+  width: 400px;
+  // border-radius: 5px;
+  box-shadow: 1px 10px 11px 1px rgba(0,0,0,0.52);
+  // border: 2px solid $tertiaryColor;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 #signInLink {
   margin-left: 27%;
   margin-top: 10px;         
   font-size: .8em;
-  color:  rgb(188, 200, 17);
+  color:  rgb(191, 246, 9);
 }   
 
 #socialLoginContainer{
@@ -350,3 +356,5 @@ nav {
   width: 100vw;
   height: 100vh;
 }
+}
+
