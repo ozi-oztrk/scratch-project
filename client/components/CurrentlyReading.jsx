@@ -51,9 +51,9 @@ export default function CurrentlyReading() {
   };
   return (
     <div className="bodyDiv">
-      <div id="bookContainer">
+      {/* <div id="bookContainer"> */}
         {books.length > 0 ? renderBooks() : <h2>Loading...</h2>}
-      </div>
+      {/* </div> */}
     </div>
   );
 }

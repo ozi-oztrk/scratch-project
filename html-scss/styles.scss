@@ -186,10 +186,10 @@ main {
     font-size: 15px;
   }
 
-  #bookContainer,
+  .book,
   .review {
-    display: flex;
-    height: 60%;
+    display: grid;
+    height: 80%;
     width: 80%;
     background: $secondaryColor;
     color: white;
@@ -199,10 +199,11 @@ main {
     top: 10px;
     // justify-content: center;
     flex-direction: column;
-    align-items: center;
+    // align-items: center;
+    place-items: center;
     font-family: "Ubuntu", sans-serif;
     margin: 5px;
-    justify-content: center;
+    // justify-content: center;
     // overflow-y: scroll;
   }
 
