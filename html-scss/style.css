@@ -26,14 +26,8 @@ nav {
               background-size: cover; */
               /* background-repeat: no-repeat; */
           /* } */
-          #signInBox  {
-              height: 100%;
-              width: 100%;
-              display: flex;
-              /* align-items: center; */
-              justify-content: center;
-            }
-            .input {
+         
+            /* .input {
                 height: 30px;
                 width: 250px;
                 margin: 15px;
@@ -71,7 +65,7 @@ nav {
                 
             }
             #wunderpuss {
-            /* background-color: aqua; */
+            background-color: aqua;
             position: absolute;
             left: 83%;
             top: 0%;  
@@ -98,4 +92,4 @@ nav {
                 margin-top: 10px;
                 font-size: 1.2em;
                 color: white;
-            }  
+            }   */

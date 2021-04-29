@@ -55,8 +55,9 @@ function LoginForm() {
 
   return (
     <div id="signInBox">
-      <form id="form" type="submit" onSubmit={handleSubmit} method="POST" action="/login">
-        <h1>Log In</h1>
+      <form id="loginForm" type="submit" onSubmit={handleSubmit} method="POST" action="/login">
+        <h1 id="loginTitle">Better Reads</h1>
+        <h2 id="loginSubtext">login</h2>
         <div id="infoBox">
           <input
             className="input"
@@ -80,18 +81,25 @@ function LoginForm() {
           <br />
           <input id="button" type="submit" value="login" />
           <a id="signInLink" href="/signup">
-            Sign Up
+            No account? Sign Up
           </a>
         </div>
-        <div id="googleLogin">
-          <a href="auth/google/">Login with Google</a>
+        <div id="socialLoginContainer" >
+          <div className="g-signin2"></div>
+          <a id="twitterLink" href="twitter/auth">
+            <div id="twitterAuth">
+              <img id="twitterImg" src="http://pngimg.com/uploads/twitter/twitter_PNG95259.png" alt=""/>
+              <p id="twitterButtonText">Sign in</p>
+            </div>
+          </a>
+          <a id="twitterLink" href="twitter/auth">
+            <div id="twitterAuth">
+              <img id="fbImg" src="https://balancedlifeskills.com/wp-content/uploads/2017/03/facebook-logo-large.png" alt=""/>
+              <p id="fbText">Sign in</p>
+            </div>
+          </a>
         </div>
-        <div id="googleLogin">
-          <a href="auth/twitter/">Login with Twitter</a>
-        </div>
-        <div id="googleLogin">
-          <a href="auth/facebook/">Login with Facebook</a>
-        </div>
+
         {/* <img id="logo" src="/client/assets/BR_Logo_White.png" height="150px" width="150px"/>  */}
       </form>
     </div>
