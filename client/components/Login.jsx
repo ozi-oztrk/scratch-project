@@ -1,13 +1,11 @@
 import React from "react";
 import LoginForm from "./LoginForm.jsx";
 // import{ withRouter } from 'react-router-dom'
-
+import '../../html-scss/style.css'
 function Login() {
   return (
-    <div className="loginContainer">
-      <div className="loginFormContainer">
+    <div id="loginFormContainer">
         <LoginForm />
-      </div>
     </div>
   );
 }

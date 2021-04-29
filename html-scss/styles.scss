@@ -1,6 +1,9 @@
-$mainColor: rgb(116, 20, 20, 0.95);
-$secondaryColor: rgb(224, 223, 223);
-$darkColor: rgba(78, 12, 12, 0.95);
+$mainColor: #074a9c;
+$mainColorAlt: #0c76f82b;
+$secondaryColor:#4ff80184;
+$darkColor: #8590AA;
+$tertiaryColor: #bff609;
+$redOrange: #b2388d;
 $mainColorTransparent: rgb(116, 20, 20, 0.35);
 $grayColor: rgb(170, 170, 170, 0.9);
 $orangeColor: #eda85ed3;
@@ -8,6 +11,8 @@ $orangeColor: #eda85ed3;
 
 html {
   font-family: "Noto Sans";
+  width: 100vw;
+  height: 100vh;
 }
 
 body {
@@ -35,6 +40,7 @@ header {
 main {
   // border: 1px solid red;
   display: grid;
+  width: 100%;
   grid-template-columns: 35% 65%;
   height: 885px;
   border-radius: 5px;
@@ -114,7 +120,7 @@ nav {
   margin-left: 300px;
   margin-top: 150px;
   overflow: scroll;
-  min-width: 250%;
+  min-width: 150%;
   height: 615px;
   color: $secondaryColor;
   border-radius: 10px;
@@ -187,9 +193,199 @@ nav {
   }
 }
 
+
+
+// @media screen and (max-width:480px){
+  #root{
+  height: 100%;
+  width: 100%;
+  background-image: url(https://i.ytimg.com/vi/YQc4WT0yDH4/maxresdefault.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 #googleLogin {
   height: 40px;
   width: 120px;
   border: 1px solid black;
   background: white;
 }
+
+#loginContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #074a9ce1;
+//   background: -webkit-linear-gradient(top, #0C77F8, #4999F6);
+//   background: -moz-linear-gradient(top, #0C77F8, #4999F6);
+//   background: linear-gradient(to bottom, #0C77F8, #4999F6);
+}
+#loginFormContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-direction: center;
+}
+ #signInBox  {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  // border-radius: 5px;
+  // border: 3px solid  rgb(188, 200, 17);
+  background: rgba(79, 248, 1, 0.519);
+  }
+
+.input {
+  height: 30px;
+  width: 250px;
+  margin: 15px;
+  // border-radius: 5px;
+  font-size: 1em;
+  text-align: center;
+  border:1px solid rgb(191, 246, 9);
+}
+#loginTitle {
+  color: rgb(191, 246, 9);
+  font-size: 48px;
+  font-family: 'Fredoka One', cursive;
+  font-weight: 700;
+}
+
+#loginSubtext {
+  font-family: helvetica;
+  color: rgb(191, 246, 9);
+  margin-top: 0;
+}
+#button {
+  width: 256px;
+  height: 30px;
+  margin: 15px;
+  border-radius: 5px;
+  background: rgb(191, 246, 9);
+  color: rgb(71, 67, 67);
+  font-size: 1em;
+}
+#infoBox {
+    margin-left: 15%;
+    margin-right: 40px;
+}
+#button:hover {
+  cursor: pointer;
+  background-color: rgb(224, 223, 223);
+  box-shadow: 1px 1px 1px rgb(10, 10, 10);
+}
+
+#loginForm {
+  height: 550px;
+  width: 400px;
+  // border-radius: 5px;
+  box-shadow: 1px 10px 11px 1px rgba(0,0,0,0.52);
+  // border: 2px solid $tertiaryColor;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#signInForm {
+  height: 650px;
+  width: 400px;
+  // border-radius: 5px;
+  box-shadow: 1px 10px 11px 1px rgba(0,0,0,0.52);
+  // border: 2px solid $tertiaryColor;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#loginLink {
+  margin-left: 27%;
+  margin-top: 10px;         
+  font-size: .8em;
+  color:  rgb(191, 246, 9);
+}   
+
+#signInLink {
+  margin-left: 42%;
+  margin-top: 20px;         
+  font-size: .8em;
+  color:  rgb(191, 246, 9);
+}   
+
+#socialLoginContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 20px;
+  height: 200px;
+  width: 65%;
+}
+
+#googleImg{
+  height: 22px;
+  position: relative;
+  left: 4px;
+  top: 4px
+}
+
+#googleButtonText{
+  position: relative;
+  left: 34px;
+  bottom: 6px;
+  font-size: 12.5px;
+}
+#twitterAuth{
+  height: 31px;
+  width: 117px;
+  border: 1px solid white;
+  background: white;
+  font-size: 10px;
+  display: flex;
+  
+}
+#twitterButtonText{
+  font-size: 12.5px;
+  position: relative;
+  bottom: 6px;
+  left: 25px;
+}
+#twitterLink{
+  text-decoration: none;
+  color: gray;
+  position: relative
+}
+#twitterImg{
+  height: 30px;
+  position: relative;
+  right:0;
+}
+#fbImg{
+  height: 25px;
+  position: relative;
+  left: 3px;
+  top: 2px;
+}
+
+#fbText{
+  font-size: 12.5px;
+  position: relative;
+  bottom: 7px;
+  left: 30px;
+}
+
+
+#twitterButton{
+  height: 100%;
+  width: 100%;
+  border: none;
+}
+
+#homeContainer {
+  width: 100vw;
+  height: 100vh;
+}
+// }
+

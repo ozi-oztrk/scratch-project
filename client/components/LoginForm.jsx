@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Redirect, withRouter } from "react-router-dom";
-import "../../html-scss/style.css";
 
 function LoginForm() {
   const [value, setValue] = useState("");
@@ -56,8 +55,9 @@ function LoginForm() {
 
   return (
     <div id="signInBox">
-      <form id="form" type="submit" onSubmit={handleSubmit} method="POST" action="/login">
-        <h1>Log In</h1>
+      <form id="loginForm" type="submit" onSubmit={handleSubmit} method="POST" action="/login">
+        <h1 id="loginTitle">Better Reads</h1>
+        <h2 id="loginSubtext">login</h2>
         <div id="infoBox">
           <input
             className="input"
@@ -80,13 +80,31 @@ function LoginForm() {
           ></input>
           <br />
           <input id="button" type="submit" value="login" />
-          <a id="signInLink" href="/signup">
-            Sign Up
+          <a id="loginLink" href="/signup">
+            No account? Sign Up
           </a>
         </div>
-        <div id="googleLogin">
-          <a href="auth/google/">Login with Google</a>
+        <div id="socialLoginContainer" >
+          <a id="twitterLink" href="auth/google">
+            <div id="twitterAuth">
+              <img id="googleImg" src="http://pngimg.com/uploads/google/google_PNG19630.png" alt=""/>
+              <p id="googleButtonText">Sign in</p>
+            </div>
+          </a>
+          <a id="twitterLink" href="auth/twitter">
+            <div id="twitterAuth">
+              <img id="twitterImg" src="http://pngimg.com/uploads/twitter/twitter_PNG95259.png" alt=""/>
+              <p id="twitterButtonText">Sign in</p>
+            </div>
+          </a>
+          <a id="twitterLink" href="auth/facebook">
+            <div id="twitterAuth">
+              <img id="fbImg" src="https://balancedlifeskills.com/wp-content/uploads/2017/03/facebook-logo-large.png" alt=""/>
+              <p id="fbText">Sign in</p>
+            </div>
+          </a>
         </div>
+
         {/* <img id="logo" src="/client/assets/BR_Logo_White.png" height="150px" width="150px"/>  */}
       </form>
     </div>

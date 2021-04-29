@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Home.jsx";
 import Login from "./Login.jsx";
 import Signup from "./Signup.jsx";
+import '../../html-scss/style.css'
 export default function App() {
   return (
-    // <div id="welcomeContainer">
-      <main id="bodyDiv">
+      <main id="loginContainer">
         <Router>
           <Switch>
             <Route exact path="/signup" component={Signup} />
@@ -15,6 +15,5 @@ export default function App() {
           </Switch>
         </Router>
       </main>
-    // </div>
   );
 }

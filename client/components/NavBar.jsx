@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import CurrentlyReading from "./CurrentlyReading.jsx";
 import Reviews from "./Reviews.jsx";
 import Complete from "./Complete.jsx";
-// import Login from "./Login.jsx";
-// import Signup from "./Signup.jsx";
 import Profile from "./Profile.jsx";
 import Search from "./Search.jsx";
 import Main from "./Main.jsx";
@@ -40,8 +38,6 @@ export default function NavBar() {
         </div>
       </nav>
       <Switch>
-        {/* <Route exact path ="/signup" component={Signup} /> */}
-        {/* <Route path ="/" component={Login} /> */}
         <Route exact path="/home" component={Main} />
         <Route path="/CurrentlyReading" component={CurrentlyReading} />
         <Route path="/ToBeRead" component={ToBeRead} />
