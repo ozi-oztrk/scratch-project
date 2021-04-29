@@ -26,22 +26,22 @@ export default function NavBar() {
       <div className="Menu">
         <div className={"m-item m-logo"} onClick={() => setOpenMenu(!openMenu)}>Menu</div>
         <div className={setClassNames(1)}>
-          <Link className="navLinks"  to="/home">Home</Link>
+          <Link className="navLinks" onClick={() => setOpenMenu(false)}  to="/home">Home</Link>
         </div>
         <div className={setClassNames(2)}>
-          <Link className="navLinks"  to="/CurrentlyReading">Reading</Link>
+          <Link className="navLinks" onClick={() => setOpenMenu(false)}  to="/CurrentlyReading">Reading</Link>
         </div>
         <div className={setClassNames(3)}>
-          <Link className="navLinks"  to="/ToBeRead">To Be Read</Link>
+          <Link className="navLinks" onClick={() => setOpenMenu(false)}   to="/ToBeRead">To Be Read</Link>
         </div>
         <div className={setClassNames(4)}>
-          <Link className="navLinks"  to="/Complete">Complete</Link>
+          <Link className="navLinks" onClick={() => setOpenMenu(false)}   to="/Complete">Complete</Link>
         </div>
         <div className={setClassNames(5)}>
-          <Link className="navLinks" to="/Reviews">My Reviews</Link>
+          <Link className="navLinks" onClick={() => setOpenMenu(false)}  to="/Reviews">My Reviews</Link>
         </div>
         <div className={setClassNames(6)}>
-          <Link className="navLinks"  to="/Search">Search</Link>
+          <Link className="navLinks" onClick={() => setOpenMenu(false)}  to="/Search">Search</Link>
         </div>
       </div>
       <Switch>
