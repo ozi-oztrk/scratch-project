@@ -8,6 +8,8 @@ const db = require("./models/libraryModel");
 const bcrypt = require("bcryptjs");
 
 
+const twitteremail = {}
+
 passport.serializeUser(function(user, done) {
     done(null, user);
   });
@@ -53,7 +55,7 @@ passport.use(new TwitterStrategy({
   passReqToCallback : true
 },
 function(req, accessToken, refreshToken, profile, cb) {
-  
+  twitteremail.email = profile.emails[0].value;
   const email = profile.emails[0].value;
   const password = profile.id
   const params = [email, password]    
@@ -124,3 +126,5 @@ passport.use(new LocalStrategy({usernameField:"email", passwordField:"password"}
      }
   })
 }))
+
+module.exports = {twitteremail} ;
