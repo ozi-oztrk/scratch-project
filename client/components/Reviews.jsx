@@ -22,8 +22,8 @@ export default function Reviews() {
   };
   return (
     <div className="bodyDiv">
-      <div className="bookContainer">{reviews.length > 0 ? renderReviews() : <h2>Loading...</h2>}
+      {reviews.length > 0 ? renderReviews() : <h2>Loading...</h2>}
       </div>
-    </div>
+    
   );
 }
