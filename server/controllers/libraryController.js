@@ -1,5 +1,7 @@
 const db = require("../models/libraryModel");
 
+const { twitteremail }= require('../passport.js')
+
 const libraryController = {};
 
 // ****************
@@ -13,12 +15,12 @@ const libraryController = {};
 // Stores data in res.locals
 libraryController.getUserId = (req, res, next) => {
   
-  let userEMAIL;
-  console.log(req.user)
-  console.log(req.user.emails[0].value)
+  console.log(twitteremail.email)
 
-  if(req.user.emails[0].value) userEMAIL = [req.user.emails[0].value]
-  else userEMAIL = [req.user.email]
+  const userEMAIL = []; 
+
+  if(twitteremail.email!== undefined ) userEMAIL.push(twitteremail.email)
+  else userEMAIL.push(req.user.emails[0].value)
 
   
 

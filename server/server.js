@@ -71,7 +71,7 @@ app.get("/auth/google/callback", passport.authenticate('google', {successRedirec
   }
 );
 
-app.get('/auth/twitter', passport.authenticate('twitter'));
+app.get('/auth/twitter', passport.authenticate('twitter', {scope: ['email', 'profile']}));
 app.get('/auth/twitter/callback', passport.authenticate('twitter', {successRedirect:'http://localhost:8080/home', failureRedirect: '/auth/error' }),
 function(req, res) {
  
