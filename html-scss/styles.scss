@@ -1,8 +1,8 @@
 $mainColor: #074a9c;
 $mainColorAlt: #0c76f82b;
-$secondaryColor:#E7E3D4;
+$secondaryColor:#4ff80184;
 $darkColor: #8590AA;
-$tertiaryColor: #C4DBF6;
+$tertiaryColor: #bff609;
 $redOrange: #b2388d;
 $mainColorTransparent: rgb(116, 20, 20, 0.35);
 $grayColor: rgb(170, 170, 170, 0.9);
@@ -195,7 +195,7 @@ nav {
 
 
 
-@media screen and (max-width:480px){
+// @media screen and (max-width:480px){
   #root{
   height: 100%;
   width: 100%;
@@ -241,7 +241,7 @@ nav {
   height: 30px;
   width: 250px;
   margin: 15px;
-  border-radius: 5px;
+  // border-radius: 5px;
   font-size: 1em;
   text-align: center;
   border:1px solid rgb(191, 246, 9);
@@ -263,6 +263,8 @@ nav {
   height: 30px;
   margin: 15px;
   border-radius: 5px;
+  background: rgb(191, 246, 9);
+  color: rgb(71, 67, 67);
   font-size: 1em;
 }
 #infoBox {
@@ -286,10 +288,28 @@ nav {
   justify-content: center;
   align-items: center;
 }
+#signInForm {
+  height: 650px;
+  width: 400px;
+  // border-radius: 5px;
+  box-shadow: 1px 10px 11px 1px rgba(0,0,0,0.52);
+  // border: 2px solid $tertiaryColor;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-#signInLink {
+#loginLink {
   margin-left: 27%;
   margin-top: 10px;         
+  font-size: .8em;
+  color:  rgb(191, 246, 9);
+}   
+
+#signInLink {
+  margin-left: 42%;
+  margin-top: 20px;         
   font-size: .8em;
   color:  rgb(191, 246, 9);
 }   
@@ -304,11 +324,22 @@ nav {
   width: 65%;
 }
 
-.g-signin2{
+#googleImg{
+  height: 22px;
+  position: relative;
+  left: 4px;
+  top: 4px
+}
+
+#googleButtonText{
+  position: relative;
+  left: 34px;
+  bottom: 6px;
+  font-size: 12.5px;
 }
 #twitterAuth{
   height: 31px;
-  width: 116px;
+  width: 117px;
   border: 1px solid white;
   background: white;
   font-size: 10px;
@@ -356,5 +387,5 @@ nav {
   width: 100vw;
   height: 100vh;
 }
-}
+// }
 
