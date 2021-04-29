@@ -80,19 +80,24 @@ function LoginForm() {
           ></input>
           <br />
           <input id="button" type="submit" value="login" />
-          <a id="signInLink" href="/signup">
+          <a id="loginLink" href="/signup">
             No account? Sign Up
           </a>
         </div>
         <div id="socialLoginContainer" >
-          <div className="g-signin2"></div>
-          <a id="twitterLink" href="twitter/auth">
+          <a id="twitterLink" href="auth/google">
+            <div id="twitterAuth">
+              <img id="googleImg" src="http://pngimg.com/uploads/google/google_PNG19630.png" alt=""/>
+              <p id="googleButtonText">Sign in</p>
+            </div>
+          </a>
+          <a id="twitterLink" href="auth/twitter">
             <div id="twitterAuth">
               <img id="twitterImg" src="http://pngimg.com/uploads/twitter/twitter_PNG95259.png" alt=""/>
               <p id="twitterButtonText">Sign in</p>
             </div>
           </a>
-          <a id="twitterLink" href="twitter/auth">
+          <a id="twitterLink" href="auth/facebook">
             <div id="twitterAuth">
               <img id="fbImg" src="https://balancedlifeskills.com/wp-content/uploads/2017/03/facebook-logo-large.png" alt=""/>
               <p id="fbText">Sign in</p>
