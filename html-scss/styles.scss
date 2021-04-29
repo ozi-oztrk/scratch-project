@@ -3,6 +3,7 @@ $mainColorAlt: #0c76f82b;
 $secondaryColor:#4ff80184;
 $darkColor: #8590AA;
 $tertiaryColor: #bff609;
+$headerColor:  #011f475c;
 $redOrange: #b2388d;
 $mainColorTransparent: rgb(116, 20, 20, 0.35);
 $grayColor: rgb(170, 170, 170, 0.9);
@@ -17,7 +18,7 @@ html {
 
 body {
   margin: 0.1px;
-  background-image: url(https://i.ytimg.com/vi/YQc4WT0yDH4/maxresdefault.jpg);
+  // background-image:
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
@@ -28,13 +29,12 @@ header {
   text-align: center;
   border: 1px solid $mainColor;
   grid-column: 1 / span 2;
-  background-color: $mainColor;
+  background-color: #011f475c;
   color: $secondaryColor;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  box-shadow: 2px 2px 2px black;
 }
 
 main {
@@ -47,93 +47,37 @@ main {
   grid-template-columns: 1fr 3fr;
   overflow: overlay;
 
-  #wunderpus {
-    position: relative;
-    left: 1050px;
-    top: 700px;
-  }
-  #biggiantdiv {
-    height: 150px;
-    width: 250px;
-  }
+
+
+}
+#betterReadsTitle{
+  font-family: 'Fredoka One', cursive;
+  color: $tertiaryColor;
 }
 
-// everything in the nav bar
-// nav {
-//   grid-column: 1 / span 1;
-//   display: flex;
-//   flex-direction: column;
-//   border: 1px solid black;
-//   width: 200px;
-//   background-color: $secondaryColor;
-//   border-radius: 5px;
-//   position: absolute;
-//   margin-top: 150px;
-//   margin-left: 10px;
-//   box-shadow: 2px 2px 2px rgb(0, 0, 0);
-
-//   #profileLink {
-//     height: 270px;
-//     border: 1px solid $mainColor;
-//     color: $mainColor;
-//     text-align: center;
-//   }
-
-//   .navLinks {
-//     background-color: $mainColor;
-//     border: 1px solid rgb(44, 1, 9);
-//     height: 40px;
-//     font-size: 1.3em;
-//     text-align: center;
-//     padding-top: 15px;
-//     color: $secondaryColor;
-//   }
-//   .navLinks:hover {
-//     animation: change-color 2s ease-out;
-//     background-color: rgb(44, 1, 9);
-//     color: $secondaryColor;
-//     animation: change-background 1s ease infinite;
-//   }
-
-//   a {
-//     color: inherit;
-//   }
-//   a:hover {
-//     color: $secondaryColor;
-//   }
-//   a:link {
-//     text-decoration: none;
-//   }
-
-//   @keyframes change-background {
-//     0% {
-//       background: $mainColor;
-//     }
-//     100% {
-//       background: $darkColor;
-//     }
-//   }
-//   max-width: 1fr;
-// }
-
+#homeContainer {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
 .Menu {
   position: relative;
-  margin: 2em 3em;
+  top: 1.3em;
+  right: 4em;
+  height: 100px;
 }
 
 .m-item {
   position: absolute;
   top: 0;
-  height: 40px;
-  width: 5.5em;
+  height: 34px;
+  width: 4em;
   background-color:#301A4B ;
   box-shadow: 1px 2px 2px #301A4B;
-
   padding: 0.2em;
   display: flex;
   align-items: center;
   justify-content: center;
-
   font-size: 1.5em;
   color: #EDFFEC;
   cursor: pointer;
@@ -162,7 +106,7 @@ main {
 }
 
 .open-3 {
-  top: 6.4em;
+  top: 6.42em;
   background-color: $tertiaryColor;
   height: 40px;
   margin-bottom: 5px;
@@ -176,14 +120,14 @@ main {
 }
 
 .open-5 {
-  top: 10.6em;
+  top: 10.64em;
   background-color: $tertiaryColor;
   height: 40px;
   margin-bottom: 5px;
 }
 
 .open-6 {
-  top: 12.72em;
+  top: 12.76em;
   background-color: $tertiaryColor;
   height: 40px;
   margin-bottom: 5px;
@@ -191,17 +135,19 @@ main {
 
 .navLinks{
   text-decoration: none;
+  font-size: 14px;
 }
 
 .bodyDiv {
-  background-color: $mainColorTransparent;
-  margin-left: 300px;
+  // position: relative;
+  // top: 150px;
+  // right: 150px;
   margin-top: 150px;
-  overflow: scroll;
-  min-width: 150%;
+  width: 350px;
   height: 615px;
-  color: $secondaryColor;
+  color: $tertiaryColor;
   border-radius: 10px;
+  background: $headerColor;
   box-shadow: 3px 3px 3px 3px black;
 
   .book,
@@ -277,7 +223,7 @@ main {
   #root{
   height: 100%;
   width: 100%;
-  background-image: url(https://i.ytimg.com/vi/YQc4WT0yDH4/maxresdefault.jpg);
+  background-image: url(https://media.istockphoto.com/photos/row-of-old-books-with-colorful-covers-on-pastel-blue-background-up-picture-id1126130554?k=6&m=1126130554&s=170667a&w=0&h=Q5yME6gGtwJGY1uNAPRzy1v1dQ0jlD6GuPNzCtWUsIE=);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -294,7 +240,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #074a9ce1;
+  background: #074a9cce;
 //   background: -webkit-linear-gradient(top, #0C77F8, #4999F6);
 //   background: -moz-linear-gradient(top, #0C77F8, #4999F6);
 //   background: linear-gradient(to bottom, #0C77F8, #4999F6);
