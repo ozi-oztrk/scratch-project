@@ -1,11 +1,11 @@
 $mainColor: #082295ce;
 $mainColorAlt: #0c76f82b;
-$secondaryColor:#4ff80184;
-$darkColor: #8590AA;
-$tertiaryColor: #D3F609;
-$tertiaryAlt:#d3f609d5;
-$auxiliaryColor: #301A4B; 
-$headerColor:  #011f475c;
+$secondaryColor: #4ff80184;
+$darkColor: #8590aa;
+$tertiaryColor: #d3f609;
+$tertiaryAlt: #d3f609d5;
+$auxiliaryColor: #301a4b;
+$headerColor: #011f475c;
 $redOrange: #b2388d;
 $mainColorTransparent: #74141459;
 $grayColor: #aaaaaae6;
@@ -155,10 +155,10 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   overflow-y: scroll;
-  
-  #randomQuoteContainer{
+
+  #randomQuoteContainer {
     height: 300px;
     width: 80%;
     background: $secondaryColor;
@@ -186,35 +186,43 @@ main {
     font-size: 15px;
   }
 
-  #bookContainer {
+  #bookContainer,
+  .review {
     display: flex;
     height: 60%;
     width: 80%;
     background: $secondaryColor;
     color: white;
     border-radius: 3px;
+    padding: 5px;
     position: relative;
     top: 10px;
     // justify-content: center;
-    align-items: center;
-  }
-
-  .book,
-  .review {
     display: flex;
     flex-direction: column;
-    margin: 15px;
-    padding: 10px;
-    background-color: $secondaryColor;
-    color: white;
-    justify-content: start;
-    margin-left: 25%;
-    margin-top: 20px;
-    width: 80%;
-    min-height: 40%;
-    // box-shadow: 2px 2px 2px black;
-    border-radius: 3px;
+    align-items: center;
+    font-family: "Ubuntu", sans-serif;
+    margin: 5px;
+    justify-content: center;
+    // overflow-y: scroll;
   }
+
+  // .book,
+  // .review {
+  //   display: flex;
+  //   flex-direction: column;
+  //   margin: 15px;
+  //   padding: 10px;
+  //   background-color: $secondaryColor;
+  //   color: white;
+  //   justify-content: start;
+  //   margin-left: 25%;
+  //   margin-top: 20px;
+  //   width: 80%;
+  //   min-height: 40%;
+  //   // box-shadow: 2px 2px 2px black;
+  //   border-radius: 3px;
+  // }
 
   button,
   #button {
@@ -225,14 +233,16 @@ main {
     color: $auxiliaryColor;
     background-color: $tertiaryColor;
     border: 1px solid rgba(78, 12, 12, 0.95);
+    border-radius: 3px;
+    margin: 3px;
   }
   button:hover,
   #button:hover {
-    background-color:$darkColor;
+    background-color: $darkColor;
     color: $secondaryColor;
     cursor: pointer;
     box-shadow: 1px 1px 1px black;
-    transition: .3s;
+    transition: 0.3s;
   }
 
   input {
@@ -257,8 +267,8 @@ main {
     height: 40px;
     border-radius: 3px;
   }
-  #searchButton{
-  height: 40px;
+  #searchButton {
+    height: 40px;
     width: 140px;
     font-size: 1em;
     border-radius: 5px;
@@ -267,7 +277,7 @@ main {
     border: 1px solid rgba(78, 12, 12, 0.95);
   }
 
-  #findBookTitle{
+  #findBookTitle {
     color: white;
   }
   #searchResult {
@@ -283,7 +293,7 @@ main {
   }
 }
 
-#addBookButton{
+#addBookButton {
   height: 40px;
   width: 140px;
   background-color: $tertiaryColor;
@@ -332,10 +342,9 @@ main {
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
   background: $secondaryColor;
-  }
-
+}
 
 .input {
   height: 30px;
@@ -402,18 +411,17 @@ main {
 
 #loginLink {
   margin-left: 27%;
-  margin-top: 10px;         
-  font-size: .8em;
-  color:  $tertiaryColor;
-}   
+  margin-top: 10px;
+  font-size: 0.8em;
+  color: $tertiaryColor;
+}
 
 #signInLink {
   margin-left: 42%;
-  margin-top: 20px;         
-  font-size: .8em;
-  color:  $tertiaryColor;
-}   
-
+  margin-top: 20px;
+  font-size: 0.8em;
+  color: $tertiaryColor;
+}
 
 #socialLoginContainer {
   display: flex;

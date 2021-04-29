@@ -66,59 +66,59 @@ export default function Book(props) {
   return (
     // Renders the book element.
     // <div id="bookContainer">
-      <div className="book">
-        <img src={props.result.coverurl} />
-        <h1>
-          {props.result.title} by {props.result.author}
-        </h1>
-        <h2>{props.result.page_count} pages</h2>
-        {/* If the status of the book is in progress, the below will render */}
-        {props.result.status === "in progress" ? (
-          <div>
-            <h2>On page {props.result.page_number}</h2>
-            <button
-              // class="complete-class"
-              id="complete-button"
-              onClick={updateStatus}
-            >
-              Complete
-            </button>{" "}
-            <button onClick={updatePageNum}>Update Page</button>{" "}
-            <button
-              onClick={() =>
-                props.removeBook(props.result.book_id, props.result.user_id)
-              }
-            >
-              Remove
-            </button>
-            {complete ? displayReview() : ""}
-            {pageNumber ? displayUpdate() : ""}
-          </div>
-        ) : (
-          ""
-        )}
-        {/* If the status of the book is to be read, the below will render */}
-        {props.result.status === "to be read" ? (
-          <div>
-            <button
-              onClick={() =>
-                props.updateStatus(props.result.book_id, props.result.user_id)
-              }
-            >
-              Mark as Reading
-            </button>{" "}
-            <button
-              onClick={() =>
-                props.removeBook(props.result.book_id, props.result.user_id)
-              }
-            >
-              Remove
-            </button>
-          </div>
-        ) : (
-          ""
-        )}
-      </div>
+    <div className="book">
+      <img src={props.result.coverurl} />
+      <h1>
+        {props.result.title} by {props.result.author}
+      </h1>
+      <h2>{props.result.page_count} pages</h2>
+      {/* If the status of the book is in progress, the below will render */}
+      {props.result.status === "in progress" ? (
+        <div>
+          <h2>On page {props.result.page_number}</h2>
+          <button
+            // class="complete-class"
+            // id="button"
+            onClick={updateStatus}
+          >
+            Complete
+          </button>{" "}
+          <button onClick={updatePageNum}>Update Page</button>{" "}
+          <button
+            onClick={() =>
+              props.removeBook(props.result.book_id, props.result.user_id)
+            }
+          >
+            Remove
+          </button>
+          {complete ? displayReview() : ""}
+          {pageNumber ? displayUpdate() : ""}
+        </div>
+      ) : (
+        ""
+      )}
+      {/* If the status of the book is to be read, the below will render */}
+      {props.result.status === "to be read" ? (
+        <div>
+          <button
+            onClick={() =>
+              props.updateStatus(props.result.book_id, props.result.user_id)
+            }
+          >
+            Mark as Reading
+          </button>{" "}
+          <button
+            onClick={() =>
+              props.removeBook(props.result.book_id, props.result.user_id)
+            }
+          >
+            Remove
+          </button>
+        </div>
+      ) : (
+        ""
+      )}
+    </div>
     // </div>
   );
 }

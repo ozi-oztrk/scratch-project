@@ -40,6 +40,7 @@ export default function Search() {
     for (let i = 0; i < results.length; i += 1) {
       newResults.push(
         <SearchResults
+          key={i}
           result={results[i].volumeInfo}
           addToBeRead={addToBeRead}
         />
