@@ -7,7 +7,7 @@ import "../../html-scss/styles.scss";
 // Component just renders the header and navbar inside a main for styling.
 export default function Home() {
   return (
-    <main>
+    <main id="homeContainer">
       <Header />
       <NavBar />
       <div id="biggiantdiv">

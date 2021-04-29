@@ -8,11 +8,13 @@ $orangeColor: #eda85ed3;
 
 html {
   font-family: "Noto Sans";
+  width: 100vw;
+  height: 100vh;
 }
 
 body {
   margin: 0.1px;
-  background-image: url(https://i.ytimg.com/vi/YQc4WT0yDH4/maxresdefault.jpg);
+  // background-image: url(https://i.ytimg.com/vi/YQc4WT0yDH4/maxresdefault.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
@@ -35,6 +37,7 @@ header {
 main {
   // border: 1px solid red;
   display: grid;
+  width: 100%;
   grid-template-columns: 35% 65%;
   height: 885px;
   border-radius: 5px;
@@ -51,7 +54,7 @@ main {
     width: 250px;
   }
 }
-
+#root
 // everything in the nav bar
 nav {
   grid-column: 1 / span 1;
@@ -114,7 +117,7 @@ nav {
   margin-left: 300px;
   margin-top: 150px;
   overflow: scroll;
-  min-width: 250%;
+  min-width: 150%;
   height: 615px;
   color: $secondaryColor;
   border-radius: 10px;
@@ -192,4 +195,20 @@ nav {
   width: 120px;
   border: 1px solid black;
   background: white;
+}
+
+#loginContainer {
+  // width: 100vw;
+  // height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#loginFormContainer {
+  display: flex;
+  align-items: center;
+}
+#homeContainer {
+  width: 100vw;
+  height: 100vh;
 }
