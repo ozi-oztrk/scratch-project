@@ -15,17 +15,17 @@ const libraryController = {};
 // Stores data in res.locals
 libraryController.getUserId = (req, res, next) => {
   
-  console.log(twitteremail.email)
 
   const userEMAIL = []; 
 
-  if(twitteremail.email!== undefined ) userEMAIL.push(twitteremail.email)
+  if(twitteremail.email !== undefined ) userEMAIL.push(twitteremail.email)
   else userEMAIL.push(req.user.emails[0].value)
+  
+ 
 
   
 
   db.query(`select user_id from accounts where email = $1`, userEMAIL).then(data =>{
-    console.log('getting USER ID')
     res.locals.userID = data.rows[0].user_id})
     .then(next)
     .catch(e=>console.log(e))
@@ -266,7 +266,7 @@ libraryController.removeBook = (req, res, next) => {
 libraryController.addToTBR = (req, res, next) => {
   const querySelectorBookAdd = `
   INSERT INTO books (title, author, page_count, cover_url, isbn) 
-  VALUES ($1, $2, $3, $4, $5) ON CONFLICT (isbn) DO NOTHING  RETURNING (_id)
+  VALUES ($1, $2, $3, $4, $5) ON CONFLICT (isbn) DO UPDATE SET isbn=EXCLUDED.isbn RETURNING (_id)
   `;
   const queryVars = [
     req.body.title,
@@ -281,6 +281,7 @@ libraryController.addToTBR = (req, res, next) => {
 
     .then((data) => {
       
+      console.log(data)
       
       const addTBRqueryString = `
       INSERT INTO book_list (book_id, user_id, status, page_number) 
@@ -293,6 +294,8 @@ libraryController.addToTBR = (req, res, next) => {
         0
       ]
       
+      
+
       db.query(addTBRqueryString, TBRqueryVars)
         .then(next)
         .catch((err) => {
