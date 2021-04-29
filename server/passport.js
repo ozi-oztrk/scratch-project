@@ -19,7 +19,21 @@ passport.use(new GoogleStrategy({
     callbackURL: process.env.CALLBACK_URL
   },
   function(accessToken, refreshToken, profile, cb) {
-    console.log(profile)
+    const email = profile._json.email;
+    const password = profile._json.sub
+    const params = [email, password]    
+    const queryString = `INSERT INTO accounts (email, password) VALUES ($1, $2) ON CONFLICT DO NOTHING`
+    db.query(queryString, params, (err, res) => {
+      console.log('in db query')
+      if (err) {
+        console.log("error creating user", err);
+        return next();
+      } else {
+        console.log("successfully inserted new registered user row");
+        console.log(params[0]);
+        return next();
+      }
+    })
     
     return cb(null, profile);
   }
