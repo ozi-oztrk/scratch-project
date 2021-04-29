@@ -64,7 +64,7 @@ app.get(
   passport.authenticate("google", { scope: ["email", "profile"] })
 );
 
-app.get("/auth/google/callback", passport.authenticate('google', { failureRedirect: '/failed' }),
+app.get("/auth/google/callback", passport.authenticate('google', {successRedirect:'http://localhost:8080/home', failureRedirect: '/failed' }),
   function(req, res, next){
     res.redirect('http://localhost:8080/home');
     next();
